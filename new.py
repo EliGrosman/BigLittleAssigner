@@ -1,13 +1,15 @@
 import numpy as np
 import copy
 import math 
+
 matrix_1 = np.loadtxt('littles.csv', delimiter=',')
 matrix_2 = np.loadtxt('bigs.csv', delimiter=',')
 
 shape = (matrix_1.shape[0], matrix_2.shape[0])
 list_a = np.zeros(shape)
-for i in range(matrix_1.shape[0]):
-  for j in range(matrix_2.shape[1]):
+
+for i in range(shape[0]):
+  for j in range(shape[1]):
     list_a[j,i] = (matrix_1[j][i]*matrix_2[i][j])
 
 def cartesianProduct(a, b): 
@@ -40,21 +42,14 @@ def PermutateAllSets(list_a, n):
       result.append((temp[i], sum, len(set(temp[i])), math.sqrt(sum/len(set(temp[i])))))
     return(result) 
    
-n = len(list_a)  
-
-p = PermutateAllSets(list_a,n)
+p = PermutateAllSets(list_a, len(list_a))
 
 energy = []
 for i in p:
   energy.append((i[3],i))
-print(len(p))
+
 energy.sort()
 print(energy[0:5])
+
 with open('resultsnew.txt', 'w') as fp:
     fp.write('\n'.join('%s %s' % x for x in energy))
-
-
-#print(numZeros)
-#Matches = [('L1', "B2", 3)]
-#Matches.append(('L2', 3))
-#print(Matches)
