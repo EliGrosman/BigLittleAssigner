@@ -10,8 +10,8 @@ starttime = time.time()
 # Import data
 # In the littles file, each row is a little and each entry is how they rated the big that corresponds to that column
 # In the bigs file, each row is a big and each entry is how they rated the little that corresponds to that column
-matrix_1 = np.loadtxt('littles.csv', delimiter=',')
-matrix_2 = np.loadtxt('bigs.csv', delimiter=',')
+matrix_1 = np.loadtxt('data/littles.csv', delimiter=',')
+matrix_2 = np.loadtxt('data/bigs.csv', delimiter=',')
 
 shape = (matrix_1.shape[0], matrix_2.shape[0])
 list_a = np.zeros(shape)
